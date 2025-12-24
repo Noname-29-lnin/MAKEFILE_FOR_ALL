@@ -17,7 +17,7 @@ INC_WORK         = $(INC_DIR)/QuestaSim
 -include config.mk
 
 # Load Targets
-.PHONY: load
+.PHONY: load view
 load:
 	@echo "Saving configuration..."
 	@echo "TOPMODULE=$(TOPMODULE)" > config.mk
@@ -27,6 +27,8 @@ load:
 	@echo "-> Saved to config.mk"
 	@cat config.mk
 
+view:
+	@cat config.mk
 # Targets
 .PHONY: all all_wave all_cov compile compile_cover run run_cover wave gen_cov gen_html gen_view clean clear_temp help 
 
