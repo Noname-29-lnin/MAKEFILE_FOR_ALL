@@ -1,0 +1,76 @@
+-- local wk = require("which-key")
+--
+-- -- Hàm hiển thị keymap từ file config
+-- local show_keymaps = function()
+--   local keymaps = require("config.keymaps")
+--   local lines = {}
+--
+--   -- Thêm keymap cơ bản
+--   table.insert(lines, "==== Keymaps Cơ Bản ====")
+--   for key, desc in pairs(keymaps.basic) do
+--     table.insert(lines, string.format("%-12s → %s", key, desc))
+--   end
+--
+--   -- Thêm keymap tuỳ chỉnh
+--   table.insert(lines, "\n==== Keymaps Tuỳ Chỉnh ====")
+--   for key, desc in pairs(keymaps.custom) do
+--     table.insert(lines, string.format("%-12s → %s", key, desc))
+--   end
+--
+--   -- Tạo floating window
+--   local buf = vim.api.nvim_create_buf(false, true)
+--   local width = 50
+--   local height = #lines + 2
+--   local row = math.floor((vim.o.lines - height) / 2)
+--   local col = math.floor((vim.o.columns - width) / 2)
+--
+--   local opts = {
+--     style = "minimal",
+--     relative = "editor",
+--     width = width,
+--     height = height,
+--     row = row,
+--     col = col,
+--     border = "rounded",
+--   }
+--
+--   vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
+--   vim.api.nvim_buf_set_option(buf, "modifiable", false)
+--   local win = vim.api.nvim_open_win(buf, true, opts)
+--
+--   -- Đóng cửa sổ khi nhấn bất kỳ phím nào
+--   vim.api.nvim_create_autocmd("BufLeave", {
+--     buffer = buf,
+--     once = true,
+--     callback = function()
+--       vim.api.nvim_win_close(win, true)
+--     end,
+--   })
+-- end
+--
+-- -- Cấu hình which-key
+-- wk.setup({
+--   -- Các tùy chọn cấu hình which-key ở đây (nếu cần)
+-- })
+--
+-- -- Đăng ký phím tắt <leader>?
+-- wk.register({
+--   ["?"] = {
+--     function()
+--       -- Hiển thị menu lựa chọn
+--       vim.ui.select(
+--         { "Xem keymap cơ bản", "Xem keymap từ file config" },
+--         { prompt = "Chọn loại keymap:" },
+--         function(choice)
+--           if choice == "Xem keymap cơ bản" then
+--             -- Mở which-key bình thường
+--             vim.cmd("WhichKey")
+--           elseif choice == "Xem keymap từ file config" then
+--             show_keymaps()
+--           end
+--         end
+--       )
+--     end,
+--     "Hiển thị keymap",
+--   },
+-- }, { prefix = "<leader>" })
