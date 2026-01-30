@@ -1,0 +1,72 @@
+\documentclass{my-article}
+\usepackage{my-coverpage}
+\usepackage{my-codespace}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+
+%\usepackage{textcomp}
+% =========================
+% Cover page information
+% =========================
+
+\NameUpperUniname{Vietnam National University Ho Chi Minh City}
+\NameUniname{Ho Chi Minh City University of Technology}
+\NameDeptname{Department of Electronics}
+\NamePathlogo{./my-chapters/my-images/01_logobachkhoatoi.png}
+\NameClass{Môn học}
+\NameGroup{Nhóm}
+\NameLesson[\Large]{BIGPROJECT REPORT}
+\NameTitle[\Huge]{Đề tài BTL}
+\NameAdvisor{Tên giáo viên hướng dẫn}
+\NamePlace{Ho Chi Minh}
+\NameTime{../../20..}
+\NamePathBackground[width=\paperwidth,height=\paperheight]{./my-chapters/my-images/bia.jpg} 
+
+% Sử dụng cho Nhóm
+\MemberTableData{
+1 & 2210780 & Nguyễn Đại Đồng & Lớp & 100\% \\ \hline
+}
+
+% Sử dụng cho Cá nhân
+%\NameStudent{Nguyễn Đại Đồng}
+%\NameIDStudent{2210780}
+
+% =========================
+% Configuration
+% =========================
+
+\fancyhf{}
+%\fancyhead[L]{\leftmark}
+\newcommand{\finalresult}[1]{%
+	\begin{tikzpicture}[baseline=(content.base)]
+		\node[draw=red, thick, rounded corners=3pt, inner sep=6pt] (content)
+		{\ensuremath{#1}};
+	\end{tikzpicture}%
+}
+% =========================
+% Document
+% =========================
+\begin{document}
+\pagestyle{empty}
+\MycoverGroupProject % Cover page
+\newpage
+\renewcommand{\arraystretch}{1.5}
+\setlength{\parindent}{1cm}
+\onehalfspacing
+\setlength{\parskip}{6pt} 
+\tableofcontents
+\listoffigures
+\listoftables
+\listoflistings
+\newpage
+\pagestyle{fancy}
+\MycountPages{number}
+\fancyfoot[L]{\includegraphics[width=.02\linewidth]{./my-chapters/my-images/logo_DEE.png}\text{Department of Electronics}}
+\fancyhead[R]{GVHD: }
+
+\end{document}
