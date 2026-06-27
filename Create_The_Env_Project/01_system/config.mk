@@ -1,7 +1,7 @@
 # ===========================
 # Global Configuration
 # ===========================
-MAIN_TEST       			= main
+MAIN_TEST       			= VSD_TestMain
 SRC_FILE        			= flist.f
 
 BIN_DIR		 				= bin
@@ -37,15 +37,15 @@ ifneq ($(strip $(TEST_NAME)),)
     RUN_LOG_SUFFIX := $(RUN_LOG_SUFFIX)_$(TEST_NAME)
 endif
 
-RUN_LOG_NAME := run$(RUN_LOG_SUFFIX).log
-VALGRIND_LOG = $(PROFILING_VALGRIND_DIR)/valgrind$(RUN_LOG_SUFFIX).log
-PERF_LOG     = $(PROFILING_PERF_DIR)/perf$(RUN_LOG_SUFFIX).log
+RUN_LOG_NAME := run_$(MAIN_TEST)$(RUN_LOG_SUFFIX).log
+VALGRIND_LOG = $(PROFILING_VALGRIND_DIR)/valgrind_$(MAIN_TEST)$(RUN_LOG_SUFFIX).log
+PERF_LOG     = $(PROFILING_PERF_DIR)/perf_$(MAIN_TEST)$(RUN_LOG_SUFFIX).log
 
 # ===========================
 # Tools
 # ===========================
 CXX            := g++
-CXXFLAGS       := -Wall -O2 -std=c++17
+CXXFLAGS       := -Wall -O2 -std=c++17 -I${PROJECT_DIR}/01_system/include
 # TESTFLAGS      := -Wall -O3 -std=c++17 -march=native -DNDEBUG
 LDFLAGS        := -pthread
 TOOL_VALGRIND 	= valgrind

@@ -36,7 +36,12 @@ cd "$PROJECT_NAME" || {
 # Remove git history (fresh project)
 # ===========================
 echo "[INFO] Removing .git history..."
-rm -rf .git
+rm -rf .git .gitignore .gitattributes
+rm -rf 00_docs/.gitkeep 
+rm -rf 02_rtl/00_src/.gitkeep
+rm -rf 03_verif/00_tb/.gitkeep
+rm -rf 04_imple/.gitkeep
+rm -rf 07_rdc/.gitkeep
 
 # ===========================
 # Export environment variable
@@ -52,3 +57,11 @@ export PROJECT_HOME="$PROJECT_DIR"
 echo "[OK] Project initialized successfully"
 echo "[OK] PROJECT_DIR = $PROJECT_DIR"
 echo "[OK] Ready to build system-level environment"
+
+# ===========================
+# Loading again SourceMe.sh to set up environment variables
+# ===========================
+echo "#!/bin/zsh" > SourceMe.sh
+echo "export PROJECT_DIR=\"$PROJECT_DIR\"" >> SourceMe.sh
+echo "export PROJECT_HOME=\"$PROJECT_HOME\"" >> SourceMe.sh
+echo "[INFO] PROJECT_DIR=$PROJECT_DIR" >> SourceMe.sh
