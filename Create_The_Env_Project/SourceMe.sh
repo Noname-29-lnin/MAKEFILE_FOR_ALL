@@ -64,4 +64,4 @@ echo "[OK] Ready to build system-level environment"
 echo "#!/bin/zsh" > SourceMe.sh
 echo "export PROJECT_DIR=\"$PROJECT_DIR\"" >> SourceMe.sh
 echo "export PROJECT_HOME=\"$PROJECT_HOME\"" >> SourceMe.sh
-echo "[INFO] PROJECT_DIR=$PROJECT_DIR" >> SourceMe.sh
+echo "echo \"[INFO] PROJECT_DIR=$PROJECT_DIR\"" >> SourceMe.sh
